@@ -30,8 +30,8 @@ logging:
               BasicBinder: trace
 
 auth:
-  access: asdwqedsaasdwqesadsjosjndknaskmlcnkejdoknlksamlcnsqlkndoqkwacsdqwa
-  refresh: wqeniodnvsksadowqjndlknmsandokwqmlkdnjnfcosajkjqkwdmklsankclnwondkwqnldsneqdsndk
+  access: this-is-sss-server-token-code-for-access-user
+  refresh: this-is-sss-server-token-code-for-refresh-access-token
 
 server:
   get:
