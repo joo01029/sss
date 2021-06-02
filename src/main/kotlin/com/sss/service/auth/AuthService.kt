@@ -6,6 +6,6 @@ import com.sss.domain.dto.user.req.UserLoginDto
 import com.sss.domain.dto.user.res.UserLoginRes
 
 interface AuthService {
-    fun createUser(userCreateDto: UserCreateDto);
-    fun login(userLoginRes: UserLoginDto): UserLoginRes;
+    fun createUser(userCreateDto: UserCreateDto)
+    fun login(userLoginRes: UserLoginDto): UserLoginRes
 }

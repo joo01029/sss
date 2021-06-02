@@ -21,19 +21,19 @@ import javax.validation.Valid
 @RequestMapping("/auth")
 class AuthController {
     @Autowired
-    private lateinit var authService: AuthService;
+    private lateinit var authService: AuthService
 
     @PostMapping("/user")
     @ApiOperation(value= "회원가입")
     fun createUser(@RequestBody @Valid userCreateDto: UserCreateDto) : Response{
         try{
-            authService.createUser(userCreateDto);
-            return Response(HttpStatus.OK, "성공");
+            authService.createUser(userCreateDto)
+            return Response(HttpStatus.OK, "성공")
         }catch (e : HttpClientErrorException){
             throw e;
         }catch (e : Exception){
             e.printStackTrace()
-            throw HttpServerErrorException(HttpStatus.INTERNAL_SERVER_ERROR, "서버 에러");
+            throw HttpServerErrorException(HttpStatus.INTERNAL_SERVER_ERROR, "서버 에러")
         }
     }
 
@@ -41,13 +41,13 @@ class AuthController {
     @ApiOperation(value = "로그인")
     fun login(@RequestBody @Valid userLoginDto: UserLoginDto) : ResponseData<UserLoginRes>{
         try{
-            val userLoginRes: UserLoginRes = authService.login(userLoginDto);
-            return ResponseData(HttpStatus.OK,"성공", userLoginRes);
+            val userLoginRes: UserLoginRes = authService.login(userLoginDto)
+            return ResponseData(HttpStatus.OK,"성공", userLoginRes)
         }catch (e : HttpClientErrorException){
             throw e;
         }catch (e : Exception){
             e.printStackTrace()
-            throw HttpServerErrorException(HttpStatus.INTERNAL_SERVER_ERROR, "서버 에러");
+            throw HttpServerErrorException(HttpStatus.INTERNAL_SERVER_ERROR, "서버 에러")
         }
     }
 }
