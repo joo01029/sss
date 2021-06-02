@@ -2,6 +2,7 @@ package com.sss.domain.entity
 
 import java.util.*
 import javax.persistence.*
+import kotlin.collections.ArrayList
 
 @Entity
 @Table
@@ -24,5 +25,14 @@ class User {
 
     @Column
     var image : String? = null
+
+    @OneToMany(mappedBy = "streamer")
+    var streams : MutableList<Stream> = ArrayList()
+
+
+    fun add(stream: Stream){
+        streams.add(stream)
+        stream.streamer = this
+    }
 
 }
